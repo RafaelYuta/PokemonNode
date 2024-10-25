@@ -1,0 +1,4 @@
+Sempre usar antes de começar a usar o código:
+    • npm install
+    • npm install express
+    • npm install ejs

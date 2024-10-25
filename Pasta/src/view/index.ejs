@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokédex</title>
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <ul>
+        <% pokemons.forEach(function(pokemon) { %>
+            <li>
+                <a href="/pokemon/<%= pokemon.id %>"><%= pokemon.nome %></a> - <%= pokemon.tipo %> - <%= pokemon.peso %> - <%= pokemon.altura %> - <%= pokemon.poder %>
+            </li>
+        <% }); %>
+    </ul>
+    <form action="/" method="POST">
+        <input type="text" name="nome" placeholder="Nome">
+        <br>
+        <input type="text" name="tipo" placeholder="Tipo">
+        <br>
+        <input type="number" name="peso" placeholder="Peso">
+        <br>
+        <input type="number" name="altura" placeholder="Altura">
+        <br>
+        <input type="number" name="poder" placeholder="Nível de poder">
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
