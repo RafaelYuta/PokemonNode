@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title><%= treinador.nome %></title>
+</head>
+<body>
+    <h1><%= treinador.nome %></h1>
+    <p>Peso: <%= treinador.peso %></p>
+    <p>Altura: <%= treinador.altura %></p>
+    
+    <h2>Pokémons</h2>
+    <ul>
+        <% if (treinador.pokemons.length === 0) { %>
+            <li>Este treinador ainda não tem Pokémon.</li>
+        <% } else { %>
+            <% treinador.pokemons.forEach(function(pokemon) { %>
+                <li>
+                    <a href="/pokemons/pokemon/<%= pokemon.id %>"><%= pokemon.nome %></a> - Tipo: <%= pokemon.tipo %> - Peso: <%= pokemon.peso %> kg
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+    
+
+    <h2>Adicionar Pokémon ao Treinador</h2>
+    <form action="/treinadores/add-pokemon" method="POST">
+        <input type="hidden" name="trainerId" value="<%= treinador.id %>">
+        <select name="pokemonId" required>
+            <% pokemons.forEach(function(pokemon) { %>
+                <option value="<%= pokemon.id %>"><%= pokemon.nome %></option>
+            <% }); %>
+        </select>
+        <button type="submit">Adicionar Pokémon</button>
+    </form>
+    
+    <a href="/">Voltar à Pokédex</a>
+
+</body>
+</html>
