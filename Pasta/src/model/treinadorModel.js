@@ -1,13 +1,20 @@
 const treinadores = [
-    {id: 1, nome: 'corno', tipo: 'a', peso: 2, altura: 10, poder: 5}
+    {id: 1, nome: 'teste', altura: 2, peso: 1, pokemons: []}
 ];
 
-const getPokemons = () => pokemons;
-const getPokemonById = (id) => pokemons.find(p => p.id === parseInt(id));
-const createPokemon = (nome, tipo, peso, altura, poder) => {
-    const novoId = pokemons.length ? pokemons[pokemons.length - 1].id + 1 : 1; // Garante um novo ID
-    const novoPokemon = { id: novoId, nome, tipo, peso, altura, poder };
-    pokemons.push(novoPokemon);
+const getTreinadores = () => treinadores;
+const getTreinadorById = (id) => treinadores.find(t => t.id === parseInt(id));
+const createTreinador = (nome, altura, peso) => {
+    const novoId = treinadores.length ? treinadores[treinadores.length - 1].id + 1 : 1;
+    const novoTreinador = { id: novoId, nome, altura, peso, pokemons: []};
+    treinadores.push(novoTreinador);
 };
 
-module.exports = {getPokemons, getPokemonById, createPokemon}
+const addPokemonToTrainer = (trainerId, pokemonId) => {
+    const treinador = getTreinadorById(trainerId);
+    if (treinador) {
+        treinador.pokemons.push(pokemonId);
+    }
+};
+
+module.exports = { getTreinadores, getTreinadorById, createTreinador, addPokemonToTrainer};

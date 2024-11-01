@@ -5,26 +5,55 @@
     <title>Pokédex</title>
 </head>
 <body>
-    <h1>Pokédex</h1>
+
+    <h2>Treinadores</h2>
     <ul>
-        <% pokemons.forEach(function(pokemon) { %>
+        <% treinadores.forEach(function(treinador) { %>
             <li>
-                <a href="/pokemon/<%= pokemon.id %>"><%= pokemon.nome %></a> - <%= pokemon.tipo %> - <%= pokemon.peso %> - <%= pokemon.altura %> - <%= pokemon.poder %>
+                <a href="/treinadores/treinador/<%= treinador.id %>"><%= treinador.nome %></a> - Altura: <%= treinador.altura %> m - Peso: <%= treinador.peso %> kg
+                <form action="/treinadores/add-pokemon" method="POST" style="display:inline;">
+                    <input type="hidden" name="treinadorId" value="<%= treinador.id %>">
+                </form>
             </li>
         <% }); %>
     </ul>
-    <form action="/" method="POST">
-        <input type="text" name="nome" placeholder="Nome">
+
+    <h2>Adicionar Treinador</h2>
+    <form action="/treinadores" method="POST">
+        <input type="text" name="nome" placeholder="Nome do Treinador" required>
         <br>
-        <input type="text" name="tipo" placeholder="Tipo">
+        <input type="number" name="altura" placeholder="Altura" required>
         <br>
-        <input type="number" name="peso" placeholder="Peso">
+        <input type="number" name="peso" placeholder="Peso" required>
         <br>
-        <input type="number" name="altura" placeholder="Altura">
-        <br>
-        <input type="number" name="poder" placeholder="Nível de poder">
-        <br>
-        <button type="submit">Enviar</button>
+        <button type="submit">Adicionar Treinador</button>
     </form>
+
+    <h2>Pokémons</h2>
+    <ul>
+        <% pokemons.forEach(function(pokemon) { %>
+            <li>
+                <a href="/pokemons/pokemon/<%= pokemon.id %>"><%= pokemon.nome %></a> - <%= pokemon.tipo %> - Peso: <%= pokemon.peso %> kg - Altura: <%= pokemon.altura %> m - Nível de Poder: <%= pokemon.poder %>
+            </li>
+        <% }); %>
+    </ul>
+
+    <h2>Adicionar Pokémon</h2>
+    <form action="/pokemons" method="POST">
+        <input type="text" name="nome" placeholder="Nome" required>
+        <br>
+        <input type="text" name="tipo" placeholder="Tipo" required>
+        <br>
+        <input type="number" name="peso" placeholder="Peso" required>
+        <br>
+        <input type="number" name="altura" placeholder="Altura" required>
+        <br>
+        <input type="number" name="poder" placeholder="Nível de Poder" required>
+        <br>
+        <input type="number" name="trainerId" placeholder="ID do Treinador" required>
+        <br>
+        <button type="submit">Adicionar Pokémon</button>
+    </form>
+
 </body>
 </html>
