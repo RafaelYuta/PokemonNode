@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Novo Pokémon</title>
+</head>
+<body>
+  <h1>Criar Novo Pokémon</h1>
+  <form action="/pokemon" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" required><br>
+
+    <label for="tipo">Tipo:</label>
+    <input type="text" name="tipo" required><br>
+
+    <label for="altura">Altura:</label>
+    <input type="number" name="altura" step="0.1" required><br>
+
+    <label for="peso">Peso:</label>
+    <input type="number" name="peso" step="0.1" required><br>
+
+    <label for="nivelDePoder">Nível de Poder:</label>
+    <input type="number" name="nivelDePoder" required><br>
+
+    <label for="treinadorId">Treinador ID:</label>
+    <input type="number" name="treinadorId" required><br>
+
+    <button type="submit">Criar Pokémon</button>
+  </form>
+  <a href="/treinadores">Voltar para a lista de treinadores</a>
+</body>
+</html>

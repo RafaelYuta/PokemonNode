@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Treinadores</title>
+</head>
+<body>
+  <h1>Lista de Treinadores</h1>
+  <a href="/treinador/create">Criar Novo Treinador</a>
+  <ul>
+    <% treinadores.forEach(treinador => { %>
+      <li>
+        <a href="/treinador/<%= treinador.id %>"><%= treinador.nome %></a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

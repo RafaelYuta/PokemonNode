@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Novo Treinador</title>
+</head>
+<body>
+  <h1>Criar Novo Treinador</h1>
+  <form action="/treinador" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" required><br>
+
+    <label for="altura">Altura:</label>
+    <input type="number" name="altura" step="0.1" required><br>
+
+    <label for="peso">Peso:</label>
+    <input type="number" name="peso" step="0.1" required><br>
+
+    <button type="submit">Criar Treinador</button>
+  </form>
+  <a href="/treinadores">Voltar para a lista de treinadores</a>
+</body>
+</html>

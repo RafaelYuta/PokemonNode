@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= treinador.nome %> - Detalhes</title>
+</head>
+<body>
+  <h1><%= treinador.nome %></h1>
+  <p>Altura: <%= treinador.altura %>m</p>
+  <p>Peso: <%= treinador.peso %>kg</p>
+
+  <h2>Pokémons:</h2>
+  <ul>
+    <% treinador.Pokemons.forEach(pokemon => { %>
+      <li><%= pokemon.nome %> - <%= pokemon.tipo %> - Nível de Poder: <%= pokemon.nivelDePoder %></li>
+    <% }); %>
+  </ul>
+
+  <a href="/pokemon/create">Criar Novo Pokémon</a>
+  <br>
+  <a href="/treinadores">Voltar para a lista de treinadores</a>
+</body>
+</html>
